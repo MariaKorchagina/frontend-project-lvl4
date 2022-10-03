@@ -1,6 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
-import {  Col,  Button,  Nav,  Dropdown,  ButtonGroup} from 'react-bootstrap';
+import {
+  Col,
+  Button,
+  Nav,
+  Dropdown,
+  ButtonGroup
+} from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { PlusSquare } from 'react-bootstrap-icons';

@@ -1,5 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet
+} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import HeaderPage from './HeaderPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import RegistrationPage from './RegistrationPage.jsx';
@@ -7,7 +14,6 @@ import ChatPage from './ChatPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import AuthProvider from '../contexts/AuthProvider.jsx';
 import { useAuth } from '../hooks/index.js';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const PrivateOutlet = ({ toChatPage } = false) => {

@@ -19,9 +19,7 @@ const Messages = () => {
   const currentChannel = useSelector(getCurrentChannel);
   const currentMessages = useSelector(getAllMessages)
     .filter((m) => m.channelId === currentChannelId);
-
   useEffect(() => { inputEl.current.focus() });
-
   useEffect(() => { lastMessageEl.current.scrollIntoView({ behavior: 'smooth' }); }, [currentMessages]);
 
   const schema = yup.object().shape({
