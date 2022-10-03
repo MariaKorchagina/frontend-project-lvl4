@@ -34,7 +34,7 @@ const init = async (socket) => {
   leoProfanity.add(leoProfanity.getDictionary('en'));
   leoProfanity.add(leoProfanity.getDictionary('ru'));
 
-  const rollbar  = (
+  const rollbar = (
     <RollbarProvider config={rollbarConfig}>
       <ErrorBoundary>
         <StoreProvider store={store}>
@@ -48,7 +48,7 @@ const init = async (socket) => {
     </RollbarProvider>
   );
 
-  return rollbar ;
+  return rollbar;
 };
 
 export default init;
