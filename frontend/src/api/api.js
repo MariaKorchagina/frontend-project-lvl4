@@ -36,8 +36,8 @@
 
 
 import store from '../slices/index.js';
-import { actions as messagesActions } from '../slices/messagesSlice.js';
-import { actions as channelsActions } from '../slices/channelsSlice.js';
+import { actions as messagesActions } from '../slices/messages.js';
+import { actions as channelsActions } from '../slices/channels.js';
 
 const buildtSocketApi = (socket) => {
   const addNewMessage = (message) => socket.emit('newMessage', message, (response) => {
