@@ -71,31 +71,31 @@ const Delete = () => {
 
   const handleRemove = (channelId) => {
     chat.removeChannel(channelId);
-    toast.success(t('modalRemove.success'));
+    toast.success(t('modal.success'));
     dispatch(modalsActions.hideModal());
   };
 
   return (
     <Modal show centered>
       <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
-        <Modal.Title>{t('modalRemove.removeChannel')}</Modal.Title>
+        <Modal.Title>{t('modal.removeChannel')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className="lead">{t('modalRemove.confirm')}</p>
+        <p className="lead">{t('modal.confirm')}</p>
         <div className="d-flex justify-content-end">
           <Button
             className="me-2"
             variant="secondary"
             onClick={() => dispatch(modalsActions.hideModal())}
           >
-            {t('modalRemove.cancel')}
+            {t('modal.cancel')}
           </Button>
           <Button
             type="submit"
             variant="danger"
             onClick={() => handleRemove(itemId)}
           >
-            {t('modalRemove.remove')}
+            {t('modal.remove')}
           </Button>
         </div>
       </Modal.Body>

@@ -109,10 +109,10 @@ const Rename = () => {
     name: yup
       .string()
       .trim()
-      .min(3, t('modalRename.channelConstraints'))
-      .max(20, t('modalRename.channelConstraints'))
-      .notOneOf(channels.map((channel) => channel.name), t('modalRename.unique'))
-      .required(t('modalRename.required')),
+      .min(3, t('modal.channelConstraints'))
+      .max(20, t('modal.channelConstraints'))
+      .notOneOf(channels.map((channel) => channel.name), t('modal.unique'))
+      .required(t('modal.required')),
   });
 
   const formik = useFormik({
@@ -123,7 +123,7 @@ const Rename = () => {
     onSubmit: (values) => {
       const cleanedName = leoProfanity.clean(values.name);
       chat.renameChannel({ id: itemId, name: cleanedName });
-      toast.success(t('modalRename.success'));
+      toast.success(t('modal.success'));
       dispatch(modalsActions.hideModal());
     },
   });
@@ -135,7 +135,7 @@ const Rename = () => {
   return (
     <Modal show centered>
       <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
-        <Modal.Title>{t('modalRename.renameChannel')}</Modal.Title>
+        <Modal.Title>{t('modal.renameChannel')}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -149,7 +149,7 @@ const Rename = () => {
             value={formik.values.name}
             isInvalid={formik.errors.name && formik.touched.name}
           />
-          <Form.Label htmlFor="name" className="visually-hidden">{t('modalRename.name')}</Form.Label>
+          <Form.Label htmlFor="name" className="visually-hidden">{t('modal.name')}</Form.Label>
           <Form.Control.Feedback type="invalid">
             {formik.errors.name}
           </Form.Control.Feedback>
@@ -159,9 +159,9 @@ const Rename = () => {
               variant="secondary"
               onClick={() => dispatch(modalsActions.hideModal())}
             >
-              {t('modalRename.cancel')}
+              {t('modal.cancel')}
             </Button>
-            <Button type="submit" variant="primary">{t('modalRename.send')}</Button>
+            <Button type="submit" variant="primary">{t('modal.send')}</Button>
           </div>
         </Form>
       </Modal.Body>

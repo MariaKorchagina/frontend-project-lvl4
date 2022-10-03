@@ -105,10 +105,10 @@ const Add = () => {
     name: yup
       .string()
       .trim()
-      .min(3, t('modalAdd.channelConstraints'))
-      .max(20, t('modalAdd.channelConstraints'))
-      .notOneOf(channels.map((channel) => channel.name), t('modalAdd.unique'))
-      .required(t('modalAdd.required')),
+      .min(3, t('modal.channelConstraints'))
+      .max(20, t('modal.channelConstraints'))
+      .notOneOf(channels.map((channel) => channel.name), t('modal.unique'))
+      .required(t('modal.required')),
   });
 
   const formik = useFormik({
@@ -119,7 +119,7 @@ const Add = () => {
     onSubmit: (values) => {
       const cleanedName = leoProfanity.clean(values.name);
       chat.addNewChannel({ name: cleanedName });
-      toast.success(t('modalAdd.success'));
+      toast.success(t('modal.success'));
       dispatch(modalsActions.hideModal());
     },
   });
@@ -127,7 +127,7 @@ const Add = () => {
   return (
     <Modal show centered>
       <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
-        <Modal.Title>{t('modalAdd.addChannel')}</Modal.Title>
+        <Modal.Title>{t('modal.addChannel')}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -141,7 +141,7 @@ const Add = () => {
             value={formik.values.name}
             isInvalid={formik.errors.name && formik.touched.name}
           />
-          <Form.Label htmlFor="name" className="visually-hidden">{t('modalAdd.name')}</Form.Label>
+          <Form.Label htmlFor="name" className="visually-hidden">{t('modal.name')}</Form.Label>
           <Form.Control.Feedback type="invalid">
             {formik.errors.name}
           </Form.Control.Feedback>
@@ -151,9 +151,9 @@ const Add = () => {
               variant="secondary"
               onClick={() => dispatch(modalsActions.hideModal())}
             >
-              {t('modalAdd.cancel')}
+              {t('modal.cancel')}
             </Button>
-            <Button type="submit" variant="primary">{t('modalAdd.send')}</Button>
+            <Button type="submit" variant="primary">{t('modal.send')}</Button>
           </div>
         </Form>
       </Modal.Body>
