@@ -71,7 +71,7 @@ const Delete = () => {
 
   const handleRemove = (channelId) => {
     chat.removeChannel(channelId);
-    toast.success(t('modal.success'));
+    toast.success(t('modal.delete'));
     dispatch(modalsActions.hideModal());
   };
 

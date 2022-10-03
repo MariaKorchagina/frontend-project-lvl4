@@ -123,7 +123,7 @@ const Rename = () => {
     onSubmit: (values) => {
       const cleanedName = leoProfanity.clean(values.name);
       chat.renameChannel({ id: itemId, name: cleanedName });
-      toast.success(t('modal.success'));
+      toast.success(t('modal.rename'));
       dispatch(modalsActions.hideModal());
     },
   });

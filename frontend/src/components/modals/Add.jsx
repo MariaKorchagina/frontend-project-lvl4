@@ -119,7 +119,7 @@ const Add = () => {
     onSubmit: (values) => {
       const cleanedName = leoProfanity.clean(values.name);
       chat.addNewChannel({ name: cleanedName });
-      toast.success(t('modal.success'));
+      toast.success(t('modal.add'));
       dispatch(modalsActions.hideModal());
     },
   });
