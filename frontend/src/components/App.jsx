@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
   Navigate,
-  Outlet
+  Outlet,
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import HeaderPage from './HeaderPage.jsx';

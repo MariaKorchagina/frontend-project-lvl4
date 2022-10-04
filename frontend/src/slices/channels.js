@@ -1,5 +1,8 @@
+/* eslint-disable no-param-reassign */
+
 import axios from 'axios';
 import { createAsyncThunk, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+
 import { getAuthHeader } from '../utils/index.js';
 import routes from '../routes.js';
 

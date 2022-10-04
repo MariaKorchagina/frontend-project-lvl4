@@ -15,7 +15,7 @@ const ApiProvider = ({ mainAPI, children }) => {
       addNewChannel,
       removeChannel,
       renameChannel,
-    }}>
+  }}>
       {children}
     </ApiContext.Provider>
   );
