@@ -16,13 +16,11 @@ const Add = () => {
   const chat = useChat();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    inputEl.current.focus();
-  }, []);
+  useEffect(() => { inputEl.current.focus(); }, []);
 
   const channels = useSelector(getAllChannels);
 
-  const validationSchema = yup.object().shape({
+  const schema = yup.object().shape({
     name: yup
       .string()
       .trim()
@@ -36,11 +34,11 @@ const Add = () => {
     initialValues: {
       name: '',
     },
-    validationSchema,
+    schema,
     onSubmit: (values) => {
       const cleanedName = leoProfanity.clean(values.name);
       chat.addNewChannel({ name: cleanedName });
-      toast.success(t('modal.add'));
+      toast(t('modal.add'));
       dispatch(modalsActions.hideModal());
     },
   });
@@ -50,7 +48,6 @@ const Add = () => {
       <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
         <Modal.Title>{t('modal.addChannel')}</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
           <Form.Control
@@ -74,7 +71,7 @@ const Add = () => {
             >
               {t('modal.cancel')}
             </Button>
-            <Button type="submit" variant="primary">{t('modal.send')}</Button>
+            <Button type="submit" variant="info">{t('modal.send')}</Button>
           </div>
         </Form>
       </Modal.Body>
