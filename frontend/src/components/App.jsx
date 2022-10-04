@@ -16,7 +16,7 @@ import AuthProvider from '../contexts/AuthProvider.jsx';
 import { useAuth } from '../hooks/index.js';
 import 'react-toastify/dist/ReactToastify.css';
 
-const PrivateOutlet = ({ toChatPage } = false) => {
+const Private = ({ toChatPage } = false) => {
   const auth = useAuth();
 
   if (toChatPage) {
@@ -31,13 +31,13 @@ const App = () => (
       <div className="d-flex flex-column h-100">
         <HeaderPage />
         <Routes>
-          <Route path="/" element={<PrivateOutlet toChatPage />}>
+          <Route path="/" element={<Private toChatPage />}>
             <Route path="" element={<ChatPage />} />
           </Route>
-          <Route path="/login" element={<PrivateOutlet />}>
+          <Route path="/login" element={<Private />}>
             <Route path="" element={<LoginPage />} />
           </Route>
-          <Route path="/signup" element={<PrivateOutlet />}>
+          <Route path="/signup" element={<Private />}>
             <Route path="" element={<RegistrationPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />

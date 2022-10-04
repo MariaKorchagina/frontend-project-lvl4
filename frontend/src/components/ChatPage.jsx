@@ -8,7 +8,7 @@ import getModal from './modals/index.js';
 import { isDataFetching, getModalType } from '../slices/selectors.js';
 import { fetchData } from '../slices/channels.js';
 
-const MainPage = () => {
+const ChatPage = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const modalType = useSelector(getModalType);
@@ -45,4 +45,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default ChatPage;

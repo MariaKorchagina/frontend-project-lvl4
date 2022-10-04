@@ -43,16 +43,13 @@ const Rename = () => {
     },
   });
 
-  useEffect(() => {
-    inputEl.current.select();
-  }, []);
+  useEffect(() => { inputEl.current.select(); }, []);
 
   return (
     <Modal show centered>
       <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
         <Modal.Title>{t('modal.renameChannel')}</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
           <Form.Control
@@ -76,7 +73,7 @@ const Rename = () => {
             >
               {t('modal.cancel')}
             </Button>
-            <Button type="submit" variant="primary">{t('modal.send')}</Button>
+            <Button type="submit" variant="info">{t('modal.send')}</Button>
           </div>
         </Form>
       </Modal.Body>

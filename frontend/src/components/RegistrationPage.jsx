@@ -150,7 +150,7 @@ const RegistrationPage = () => {
                   </Form.Control.Feedback>
                   <Form.Label htmlFor="confirmPassword">{t('signup.confirm')}</Form.Label>
                 </Form.Group>
-                <Button type="submit" variant="outline-primary" className="w-100">{t('signup.submit')}</Button>
+                <Button type="submit" variant="outline-info" className="w-100">{t('signup.submit')}</Button>
               </Form>
             </div>
             <div className="card-footer p-4">
