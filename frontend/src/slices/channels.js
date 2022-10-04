@@ -1,9 +1,17 @@
 /* eslint-disable no-param-reassign */
+/* eslint-disable import/prefer-default-export */
 
 import axios from 'axios';
 import { createAsyncThunk, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
-import { getAuthHeader } from '../utils/index.js';
 import routes from '../routes.js';
+
+export const getAuthHeader = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user && user.token) {
+    return { Authorization: `Bearer ${user.token}` };
+  }
+  return {};
+};
 
 const fetchData = createAsyncThunk(
   'fetchData',

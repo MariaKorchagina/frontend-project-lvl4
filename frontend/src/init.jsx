@@ -20,7 +20,7 @@ const rollbarConfig = {
 };
 
 const init = async (socket) => {
-  const mainAPI = buildtSocketApi(socket);
+  const parentApi = buildtSocketApi(socket);
   const i18n = i18next.createInstance();
 
   await i18n
@@ -38,7 +38,7 @@ const init = async (socket) => {
     <RollbarProvider config={rollbarConfig}>
       <ErrorBoundary>
         <StoreProvider store={store}>
-          <ApiProvider mainAPI={mainAPI}>
+          <ApiProvider parentApi={parentApi}>
             <I18nextProvider i18n={i18n}>
               <App />
             </I18nextProvider>

@@ -17,11 +17,9 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+  useEffect(() => { inputRef.current.focus(); }, []);
 
-  const validationSchema = yup.object().shape({
+  const schema = yup.object().shape({
     username: yup
       .string()
       .trim()
@@ -37,7 +35,7 @@ const LoginPage = () => {
       username: '',
       password: '',
     },
-    validationSchema,
+    schema,
     onSubmit: async (values) => {
       setAuthFailed(false);
       try {
@@ -45,7 +43,6 @@ const LoginPage = () => {
         auth.logIn(response.data);
         navigate('/');
       } catch (err) {
-        console.log(err);
         if (err.isAxiosError) {
           if (err.response.status === 401) {
             setAuthFailed(true);
@@ -107,7 +104,7 @@ const LoginPage = () => {
                     {t('login.authFailed')}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button type="submit" variant="outline-primary" className="w-100 mb-3">{t('login.submit')}</Button>
+                <Button type="submit" variant="outline-info" className="w-100 mb-3">{t('login.submit')}</Button>
               </Form>
             </div>
             <div className="card-footer p-4">
