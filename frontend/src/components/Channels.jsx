@@ -5,7 +5,7 @@ import {
   Button,
   Nav,
   Dropdown,
-  ButtonGroup
+  ButtonGroup,
 } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
