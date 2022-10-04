@@ -11,12 +11,11 @@ const Delete = () => {
   const dispatch = useDispatch();
   const chat = useChat();
   const { t } = useTranslation();
-
   const itemId = useSelector(getItemId);
 
   const handleRemove = (channelId) => {
     chat.removeChannel(channelId);
-    toast.success(t('modal.delete'));
+    toast.error(t('modal.delete'));
     dispatch(modalsActions.hideModal());
   };
 
