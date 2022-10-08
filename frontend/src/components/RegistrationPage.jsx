@@ -153,8 +153,8 @@ const RegistrationPage = () => {
                   </Form.Control.Feedback>
                   <Form.Label htmlFor="confirmPassword">{t('signup.confirm')}</Form.Label>
                 </Form.Group>
-                <Button type="submit" variant="outline-info" className="w-100" disabled={processing} >
-                  {processing ? "" : t('signup.submit')}
+                <Button type="submit" variant="outline-info" className="w-100" disabled={processing}>
+                  {processing ? '' : t('signup.submit')}
                 </Button>
               </Form>
             </div>

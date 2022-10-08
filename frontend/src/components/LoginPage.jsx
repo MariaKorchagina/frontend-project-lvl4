@@ -108,7 +108,7 @@ const LoginPage = () => {
                   </Form.Control.Feedback>
                 </Form.Group>
                 <Button type="submit" variant="outline-info" className="w-100 mb-3" disabled={processing}>
-                  {processing ? "" : t('login.submit')}
+                  {processing ? '' : t('login.submit')}
                 </Button>
               </Form>
             </div>

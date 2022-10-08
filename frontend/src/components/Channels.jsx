@@ -4,7 +4,7 @@ import {
   Button,
 } from 'react-bootstrap';
 import {
-  useDispatch
+  useDispatch,
 } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { PlusSquare } from 'react-bootstrap-icons';
