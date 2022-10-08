@@ -14,6 +14,7 @@ const RegistrationPage = () => {
   const auth = useAuth();
   const [registrationFailed, setRegistrationFailed] = useState(false);
   const inputRef = useRef();
+  const [processing, setProcessing] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -47,6 +48,7 @@ const RegistrationPage = () => {
     validationSchema,
     onSubmit: async (values) => {
       setRegistrationFailed(false);
+      setProcessing(true);
       try {
         const response = await axios.post(
           routes.signupPath(),
@@ -68,6 +70,7 @@ const RegistrationPage = () => {
           throw err;
         }
       }
+      setProcessing(false);
     },
   });
 
@@ -150,7 +153,9 @@ const RegistrationPage = () => {
                   </Form.Control.Feedback>
                   <Form.Label htmlFor="confirmPassword">{t('signup.confirm')}</Form.Label>
                 </Form.Group>
-                <Button type="submit" variant="outline-info" className="w-100">{t('signup.submit')}</Button>
+                <Button type="submit" variant="outline-info" className="w-100" disabled={processing} >
+                  {processing ? "" : t('signup.submit')}
+                </Button>
               </Form>
             </div>
             <div className="card-footer p-4">

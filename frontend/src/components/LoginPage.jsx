@@ -13,6 +13,7 @@ import image from '../images/login.jpg';
 const LoginPage = () => {
   const [authFailed, setAuthFailed] = useState(false);
   const auth = useAuth();
+  const [processing, setProcessing] = useState(false);
   const inputRef = useRef();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -38,6 +39,7 @@ const LoginPage = () => {
     schema,
     onSubmit: async (values) => {
       setAuthFailed(false);
+      setProcessing(true);
       try {
         const response = await axios.post(routes.loginPath(), values);
         auth.logIn(response.data);
@@ -55,6 +57,7 @@ const LoginPage = () => {
           throw err;
         }
       }
+      setProcessing(false);
     },
   });
 
@@ -104,7 +107,9 @@ const LoginPage = () => {
                     {t('login.authFailed')}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button type="submit" variant="outline-info" className="w-100 mb-3">{t('login.submit')}</Button>
+                <Button type="submit" variant="outline-info" className="w-100 mb-3" disabled={processing}>
+                  {processing ? "" : t('login.submit')}
+                </Button>
               </Form>
             </div>
             <div className="card-footer p-4">
