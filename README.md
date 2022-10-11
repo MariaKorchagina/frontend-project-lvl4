@@ -8,7 +8,7 @@
 This is a simple chat application made during learning on <a href="https://hexlet.io/" target="_blank">Hexlet</a> Frontend-developer course.
 Used technologies: web-sockets, interacting with REST API, React (hooks), Redux (reduxjs/toolkit), routing, auhorization and authentification, bundling (webpack) and deploy (heroku).
 
-<img src="frontend/images/readme.png" alt="screenshot" width="650"/>
+<img src="readme.png" alt="screenshot" width="650"/>
 
 ___
 
