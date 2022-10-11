@@ -7,4 +7,10 @@ const routes = {
   dataPath: () => [apiPath, 'data'].join('/'),
 };
 
+export const pathChatPage = '/';
+export const pathLoginPage = '/login';
+export const pathSignUpPage = '/signup';
+export const pathEmpty = '';
+export const pathNotFound = '*';
+
 export default routes;
