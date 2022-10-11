@@ -20,7 +20,7 @@ import {
   pathLoginPage,
   pathSignUpPage,
   pathEmpty,
-  pathNotFound
+  pathNotFound,
 } from '../routes.js';
 
 const Private = ({ toChatPage } = false) => {
