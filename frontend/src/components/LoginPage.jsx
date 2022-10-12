@@ -36,18 +36,21 @@ const LoginPage = () => {
       password: '',
     },
     schema,
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setSubmitting }) => {
       setAuthFailed(false);
+      setSubmitting(true);
       try {
         const response = await axios.post(routes.loginPath(), values);
         auth.logIn(response.data);
         navigate('/');
+        setSubmitting(false);
       } catch (err) {
         if (err.isAxiosError) {
           if (err.response.status === 401) {
             setAuthFailed(true);
             inputRef.current.select();
           } else {
+            setSubmitting(false);
             toast.error(t('errors.network'));
           }
         } else {
