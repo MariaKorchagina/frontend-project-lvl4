@@ -7,7 +7,9 @@
     "build": "npm run build --prefix frontend",
     "start": "start-server -s ./frontend/build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd frontend && npm ci"
+    "postinstall": "cd frontend && npm ci",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,11 +20,12 @@
   "bugs": {
     "url": "https://github.com/MariaKorchagina/frontend-project-lvl4/issues"
   },
-  "homepage": "https://github.com/MariaKorchagina/frontend-project-lvl4#readme",
+  "homepage": "https://mariakorchagina.github.io/frontend-project-lvl4/",
   "dependencies": {
     "@hexlet/chat-server": "^1.1.6",
     "fastify-static": "^4.7.0",
     "formik": "^2.2.9",
+    "gh-pages": "^4.0.0",
     "i18next": "^21.9.2",
     "leo-profanity": "^1.6.1",
     "sass": "^1.55.0",
